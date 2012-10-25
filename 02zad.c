@@ -4,9 +4,9 @@
 //#include <libpq-fe.h>
 
 
-#define x 300
-#define y 300
-#define z 300
+#define X 300
+#define Y 300
+#define Z 300
 
 
 int outLen = 0, inLen = 0;
@@ -17,15 +17,15 @@ void read(char ***table, char* data)
   FILE *file = fopen(data, "r");
 
   int i, j;
-  char *c = (char*) malloc(y * sizeof(char)),
-       **helpTable = (char**) malloc(x * sizeof(char*)),
+  char *c = (char*) malloc(Y * sizeof(char)),
+       **helpTable = (char**) malloc(X * sizeof(char*)),
        *pch;
 
-  for (i = 0; i < z; i++)
+  for (i = 0; i < Z; i++)
   {
-    if (fgets(c, x, file) == NULL) break;
+    if (fgets(c, X, file) == NULL) break;
        
-    table[i] = (char**) malloc(x * sizeof(char*));
+    table[i] = (char**) malloc(X * sizeof(char*));
     helpTable[i] = (char*) malloc((strlen(c) + 1) * sizeof(char));
 
     strcpy(helpTable[i], c);
