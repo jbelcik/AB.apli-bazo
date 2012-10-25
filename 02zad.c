@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
   }
 
   int i, j;
-  char ***tab = (char***) malloc(z * sizeof(char**)),
+  char ***tab = (char***) malloc(Z * sizeof(char**)),
        *pch = strrchr(argv[1], '.'),
        *nazwa = argv[1];
 
