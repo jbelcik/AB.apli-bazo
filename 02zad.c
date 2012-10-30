@@ -4,9 +4,9 @@
 #include <libpq-fe.h>
 
 
-#define X 1000
-#define Y 1000
-#define Z 1000
+#define X 500
+#define Y 500
+#define Z 500
 
 
 int outLen = 0, inLen = 0;
@@ -182,7 +182,7 @@ int main(int argc, char* argv[])
   PGresult *result;
   PGconn   *conn;
 
-  conn = PQconnectdb("host=localhost port=5432 dbname=jbelcik user=jbelcik password=kingjames23");
+  conn = PQconnectdb("host=localhost port=5432 dbname=jbelcik user=? password=?");
   if (PQstatus(conn) == CONNECTION_OK)
   {
     printf("connection made\n");
