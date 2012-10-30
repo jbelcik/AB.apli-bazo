@@ -35,7 +35,7 @@ void readData(char ***table, char *data)
 
     for (j = 0; pch != NULL; j++)
     {
-      table[i][j] = (char*) malloc((strlen(helpTable[i]) + 1) * sizeof(char));
+      table[i][j] = (char*) malloc((strlen(pch) + 1) * sizeof(char));
       strcpy(table[i][j], pch);
       pch = strtok(NULL, ";");
     }
@@ -177,12 +177,10 @@ int main(int argc, char* argv[])
 
   generateCommands(commands, table, argv[1]);
 
-  //for (i = 0; i < outLen + 2; i++) printf("%s\n", commands[i]);
-
   PGresult *result;
   PGconn   *conn;
 
-  conn = PQconnectdb("host=localhost port=5432 dbname=jbelcik user=? password=?");
+  conn = PQconnectdb("host=localhost port=5432 dbname=jbelcik user=jbelcik password=?");
   if (PQstatus(conn) == CONNECTION_OK)
   {
     printf("connection made\n");
@@ -195,3 +193,4 @@ int main(int argc, char* argv[])
   
   return 0;
 }
+

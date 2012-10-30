@@ -1,11 +1,11 @@
 id_klient;imie;nazwisko;PESEL;NIP;miasto;ulica;kod_pocztowy;nr_kontaktowy
-1;Anna;Nowak;70051112933;543-891-22-05;Gdańsk;Aleja Rzeczypospolitej 11;80-369;514-329-005
-2;Jan;Kowalski;64120199812;221-051-10-78;Gdańsk;Grunwaldzka 211;80-266;632-101-565
-3;Ryszard;Falkiewicz;75092885433;678-019-11-45;Gdańsk;Dywizjonu 303 13B/20;80-462;678-019-11-45
-4;Maciej;Nieroda;93062414320;678-019-11-45;Gdańsk;Jana Pawła II 47/2c 8;80-457;793-030-222
-5;Elżbieta;Wasilewska;66013099021;123-006-94-88;Gdańsk;Podkramarska 5;80-834;542-707-245
-6;Tomasz;Kruszewski;86061676260;981-582-11-22;Gdańsk;Ogarna 56;80-826;678-019-11-45
-7;Angelika;Wieczerzak;678-019-11-45;678-019-11-45;Gdańsk;Na Zboczu 39;80-110;660-000-829
-8;Karol;Pietruszyński;91071390811;303-198-12-23;Nowy Dwór Gdański;Długa 12b;82-100;882-365-102
-9;Sylwia;Mocarska;678-019-11-45;678-019-11-45;Gdynia;Powstania Wielkopolskiego 78a;81-470;678-019-11-45
-10;Henryk;Bołt;61111607891;410-521-63-74;Gdynia;Świętojańska 55/15;81-391;712-546-190
+1;Zbigniew;Nowak;58092512343;351-874-87-05;Sopot;Grunwaldzka 86/5;81-771;542-707-245
+2;Kacper;Kozłowski;93021019870;543-891-22-05;Gdańsk;Michałowskiego 45;80-300;500-331-037
+3;Konrad;Gmerek;81081758300;100-864-00-91;Gdańsk;Cebertowicza 4;80-809;514-974-708
+4;Aleksandra;Wiklandt;70051112933;543-891-22-05;Przejazdowo;Brzozowa 4;83-021;691-450-653
+5;Anna;Frąckiewicz;74042211721;999-123-82-82;Reda;Fenikowskiego 6/40;84-240;601-652-115
+6;Sławomir;Olenkiewicz;66103056100;123-006-94-88;Pruszcz Gdański;Grunwaldzka 10;83-000;882-365-102
+7;Jerzy;Englert;79010193721;291-539-01-01;Sopot;Powstańców Warszawy 53a;81-712;712-546-190
+8;Damian;Szalczewski;87121744670;101-093-51-92;Gdańsk;Żytnia 4/6;80-749;586-905-938
+9;Edmund;Wąsowicz;58030198112;716-700-64-91;Rumia;Leśna 30;84-230;602-250-220
+10;Marta;Słowikowska;93062414320;981-582-11-22;Gdańsk;Toruńska 28;80-747;606-902-306
