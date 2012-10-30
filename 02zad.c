@@ -4,9 +4,9 @@
 //#include <libpq-fe.h>
 
 
-#define X 300
-#define Y 300
-#define Z 300
+#define X 500
+#define Y 500
+#define Z 500
 
 
 int outLen = 0, inLen = 0;
@@ -98,23 +98,76 @@ int main(int argc, char* argv[])
 
   int i, j;
   char ***tab = (char***) malloc(Z * sizeof(char**)),
+       **commands = (char**) malloc((Y + 2) * sizeof(char*)),
        *pch = strrchr(argv[1], '.'),
        *nazwa = argv[1];
 
   read(tab, argv[1]);
 
-  for (i = 0; i < outLen; i++)
-  {
-    for (j = 0; j < inLen; j++)
-    {
-      printf("%s\n", tab[i][j]);
-    }
-    printf("\n");
-  }
-
   for (i = strlen(argv[1]) - 4; i <= strlen(argv[1]); i++) nazwa[i] = 0;
 
-  printf("%s\n", nazwa); 
+  printf("%s\n", nazwa);
 
+  commands[0] = (char*) malloc((X + 1) * sizeof(char));
+  strcpy(commands[0], "DROP TABLE ");
+  strcat(commands[0], nazwa);
+
+  commands[outLen + 1] = (char*) malloc((X + 1) * sizeof(char));
+  strcpy(commands[outLen + 1], "SELECT * FROM ");
+  strcat(commands[outLen + 1], nazwa);
+
+  for (i = 0; i < outLen; i++)
+  {
+    commands[i + 1] = (char*) malloc((X + 1) * sizeof(char));
+
+    for (j = 0; j < inLen; j++)
+    {
+      if (i == 0)
+      {
+        if (j == 0)
+        {
+          strcpy(commands[i + 1], "CREATE TABLE ");
+          strcat(commands[i + 1], nazwa);
+          strcat(commands[i + 1], "(");
+          strcat(commands[i + 1], tab[i][j]);
+          strcat(commands[i + 1], " INTEGER PRIMARY KEY, ");
+        }
+        else if (j == inLen - 1)
+        {
+          strncat(commands[i + 1], tab[i][j], strlen(tab[i][j]) - 1);
+          strcat(commands[i + 1], " VARCHAR(30))");
+        }
+        else
+        {
+          strcat(commands[i + 1], tab[i][j]);
+          strcat(commands[i + 1], " VARCHAR(30), ");
+        }
+      }
+      else
+      {
+        if (j == 0)
+        {
+          strcpy(commands[i + 1], "INSERT INTO ");
+          strcat(commands[i + 1], nazwa);
+          strcat(commands[i + 1], " values(");
+          strcat(commands[i + 1], tab[i][j]);
+          strcat(commands[i + 1], ", '");
+        }
+        else if (j == inLen - 1)
+        {
+          strncat(commands[i + 1], tab[i][j], strlen(tab[i][j]) - 1);
+          strcat(commands[i + 1], "')");
+        }
+        else
+        {
+          strcat(commands[i + 1], tab[i][j]);
+          strcat(commands[i + 1], "', '");
+        }
+      }
+    }
+  }
+
+  for (i = 0; i < outLen + 2; i++) printf("%s\n", commands[i]);
+  
   return 0;
 }
