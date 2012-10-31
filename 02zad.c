@@ -9,14 +9,14 @@
 #define Z 500
 
 
-int outLen = 0, inLen = 0;
+int outLen = 0, inLen = 0, globalGuard = 0;
 
 
 void readData(char ***table, char *data)
 {
   FILE *file = fopen(data, "r");
 
-  int i, j;
+  int i, j, lenGuard;
   char *c = (char*) malloc(Y * sizeof(char)),
        **helpTable = (char**) malloc(X * sizeof(char*)),
        *pch;
@@ -35,14 +35,18 @@ void readData(char ***table, char *data)
 
     for (j = 0; pch != NULL; j++)
     {
+      lenGuard = j;
       table[i][j] = (char*) malloc((strlen(pch) + 1) * sizeof(char));
       strcpy(table[i][j], pch);
       pch = strtok(NULL, ";");
+      if (i == 0) inLen = lenGuard;
+      else if (lenGuard > inLen) globalGuard = 1;
     }
+    
+    if (lenGuard < inLen) globalGuard = 1;
   }
 
   outLen = i;
-  inLen = j;
 
   fclose(file);
 
@@ -174,6 +178,12 @@ int main(int argc, char* argv[])
        **commands = (char**) malloc((Y + 2) * sizeof(char*));
 
   readData(table, argv[1]);
+
+  if (globalGuard == 1)
+  {
+    printf("\n\n   !!  ERROR  !!   \n\n\n");
+    return 0;
+  }
 
   generateCommands(commands, table, argv[1]);
 
